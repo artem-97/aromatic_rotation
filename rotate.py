@@ -41,6 +41,7 @@ with open(filename) as file:
     u = A - C
     v = B - C
     n = np.cross(u, v)
+    n /= np.sqrt(np.sum(n**2))
     for k in range(n_points):
         phi = k * 2 * np.pi / n_points
         r = R.from_rotvec(phi * n).as_matrix()
